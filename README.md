@@ -15,6 +15,7 @@ _Project Objectives_
 
 _To Run_
 
-clone, then navigate to the local directory in your terminal
+Clone, then navigate to the local directory in your terminal
 using the terminal, enter the following:
+
 `python3 app.py`
