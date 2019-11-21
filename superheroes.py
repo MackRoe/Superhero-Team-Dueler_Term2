@@ -1,3 +1,6 @@
+import random
+
+
 class Ability:
     def __init__(self, name, attack_strength):
         '''
@@ -9,3 +12,10 @@ class Ability:
         # for a specific instance of the Ability class
         self.name = name
         self.max_damage = max_damage
+
+    def attack(self):
+        ''' Return a value between 0 and the value set by self.max_damage.'''
+
+        # Pick a random value between 0 and self.max_damage
+        random_value = random.randint(0, self.max_damage)
+        return random_value
