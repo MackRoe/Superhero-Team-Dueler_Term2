@@ -13,5 +13,5 @@ class Armor:
         Return a random value between 0 and the
         initialized max_block strength.
         '''
-        blocked = randint(0: self.max_block)
+        blocked = randint(0, self.max_block)
         return blocked

@@ -1,4 +1,6 @@
 import random
+from armor import Armor
+from hero import Hero
 
 
 class Ability:
@@ -28,3 +30,7 @@ if __name__ == "__main__":
     ability = Ability("Debugging Ability", 20)
     print(ability.name)
     print(ability.attack())
+    print('')
+    my_hero = Hero("Grace Hopper", 200)
+    print(my_hero.name)
+    print(my_hero.current_health)
