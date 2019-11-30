@@ -31,3 +31,18 @@ class Hero:
         print("add_ability method called")
         for ability in self.abilities:
             print(ability)
+
+    def attack(self):
+        '''Calculate the total damage from all ability attacks.
+          return: total_damage:Int
+      '''
+    # start our total out at 0
+        print("--attack method called--")
+        total_damage = 0
+        # loop through all of our hero's abilities
+        for ability in self.abilities:
+            # add the damage of each attack to our running total
+            total_damage += ability.attack()
+            print("Total Damage is " + str(total_damage))
+        # return the total damage
+        return total_damage
