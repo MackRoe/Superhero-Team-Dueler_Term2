@@ -20,3 +20,14 @@ class Hero:
         # when a hero is created, their current health is
         # always the same as their starting health (no damage taken yet!)
         self.current_health = starting_health
+
+    def add_ability(self, ability):
+        ''' Add ability to abilities list '''
+
+        # We used the append method to add strings to a list
+        # in the Rainbow Checklist tutorial. This time,
+        # we're not adding strings, instead we'll add ability objects.
+        self.abilities.append(ability)
+        print("add_ability method called")
+        for ability in self.abilities:
+            print(ability)

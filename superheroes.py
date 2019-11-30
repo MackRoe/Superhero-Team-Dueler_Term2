@@ -3,8 +3,6 @@ from hero import Hero
 from ability import Ability
 
 
-
-
 if __name__ == "__main__":
     # If you run this file from the terminal
     # this block is executed.
@@ -15,3 +13,8 @@ if __name__ == "__main__":
     my_hero = Hero("Grace Hopper", 200)
     print(my_hero.name)
     print(my_hero.current_health)
+    print('')
+    ability = Ability("Great Debugging", 50)
+    hero = Hero("Grace Hopper", 200)
+    hero.add_ability(ability)
+    print(hero.abilities)
