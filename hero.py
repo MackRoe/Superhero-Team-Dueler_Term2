@@ -62,6 +62,7 @@ class Hero:
         if len(self.armors) > 0:
             for each_armor in self.armors:
                 defense += each_armor.block()
+            print(f"Armor blocks " + str(defense) + " points of damage")
             return defense
         else:
             return 0
