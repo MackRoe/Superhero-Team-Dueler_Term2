@@ -28,9 +28,6 @@ class Hero:
         # in the Rainbow Checklist tutorial. This time,
         # we're not adding strings, instead we'll add ability objects.
         self.abilities.append(ability)
-        print("add_ability method called")
-        # for ability in self.abilities:
-        #     print(ability)
 
     def attack(self):
         '''Calculate the total damage from all ability attacks.
@@ -82,3 +79,37 @@ class Hero:
             return False
         else:
             return True
+
+    def fight(self, opponent):
+        '''Current Hero will take turns fighting an opponent hero'''
+        # TODO: Fight each hero until a victor emerges.
+        # Phases to implement:
+        # 0) check if at least one hero has abilities. If no hero has
+        #   abilities, print "Draw"
+        # 1) else, start the fighting loop until a hero has won
+        # 2) the hero (self) and their opponent must attack each other and
+        #   each must take damage from the other's attack
+        # 3) After each attack, check if either the hero (self) or the opponent
+        #   is alive
+        # 4) if one of them has died, print "HeroName won!" replacing HeroName
+        #   with the name of the hero, and end the fight loop
+        while self.is_alive() and opponent.is_alive():
+            if self.abilities == opponent.abilities:
+                # declare a draw if combatant abilities are equivalent
+                print("Hero abilities are equivalent. No victor possible.")
+                print("Match declared a Draw")
+            # attack opponent
+            damage = self.attack()
+            # accumulate opponent's damage
+            opponent.take_damage(damage)
+            # be attacked by opponent
+            damage = opponent.attack()
+            # be attacked by opponent
+            self.take_damage(damage)
+
+        if self.current_health > 0:
+            print(self.name + " is victorious!")
+            self.add_kill()
+            opponent.add_death()
+        else:
+            print(opponent.name + " is victorious!")
