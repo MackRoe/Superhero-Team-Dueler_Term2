@@ -109,7 +109,9 @@ class Hero:
 
         if self.current_health > 0:
             print(self.name + " is victorious!")
-            self.add_kill()
-            opponent.add_death()
+            # self.add_kill()
+            # opponent.add_death()
         else:
             print(opponent.name + " is victorious!")
+            # self.add_death()
+            # opponent.add_kill()
