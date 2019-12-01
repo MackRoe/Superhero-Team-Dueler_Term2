@@ -70,5 +70,15 @@ class Hero:
             return 0
 
     def take_damage(self, damage):
+        '''Updates self.current_health to reflect the damage minus the defense.
+  '''
         defense = self.defend()
         self.current_health -= damage - defense
+
+    def is_alive(self):
+        '''Check current_health. If less than or equal to zero, return
+        False. Otherwise return True'''
+        if self.current_health <= 0:
+            return False
+        else:
+            return True
