@@ -29,8 +29,8 @@ class Hero:
         # we're not adding strings, instead we'll add ability objects.
         self.abilities.append(ability)
         print("add_ability method called")
-        for ability in self.abilities:
-            print(ability)
+        # for ability in self.abilities:
+        #     print(ability)
 
     def attack(self):
         '''Calculate the total damage from all ability attacks.
@@ -46,3 +46,29 @@ class Hero:
             print("Total Damage is " + str(total_damage))
         # return the total damage
         return total_damage
+
+    def add_armor(self, armor):
+        '''Add armor to self.armors
+    Armor: Armor Object
+  '''
+        self.armors.append(armor)
+
+    def defend(self):
+        '''Calculate the total block amount from all armor blocks.
+     return: total_block:Int
+  '''
+    # TODO: This method should run the block method on each armor
+    # in self.armors
+        defense = 0
+        # initializes the defense variable
+        # which stores the accumated values of all block actions
+        if len(self.armors) > 0:
+            for each_armor in self.armors:
+                defense += each_armor.block()
+            return defense
+        else:
+            return 0
+
+    def take_damage(self, damage):
+        defense = self.defend()
+        self.current_health -= damage - defense
