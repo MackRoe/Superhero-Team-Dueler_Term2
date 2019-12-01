@@ -116,3 +116,11 @@ class Hero:
             print(opponent.name + " is victorious!")
             # self.add_death()
             # opponent.add_kill()
+
+    def add_weapon(self, weapon):
+        '''Add weapon to self.abilities'''
+        # TODO: This method will append the weapon object passed in as an
+        # argument to self.abilities.
+        # This means that self.abilities will be a list of
+        # abilities and weapons.
+        pass
