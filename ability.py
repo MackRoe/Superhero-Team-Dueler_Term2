@@ -12,7 +12,7 @@ class Ability:
         # for a specific instance of the Ability class
         self.name = name
         self.max_damage = 100
-        self.attack_strength = self.max_damage
+        self.attack_strength = attack_strength
 
     def attack(self, attack_strength):
         ''' Return a value between 0 and the value set by self.max_damage.'''
