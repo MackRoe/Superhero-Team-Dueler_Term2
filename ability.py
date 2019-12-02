@@ -12,11 +12,12 @@ class Ability:
         # for a specific instance of the Ability class
         self.name = name
         self.max_damage = 100
-        self.attack_strength = attack_strength
+        self.attack_strength = self.max_damage
 
-    def attack(self):
+    def attack(self, attack_strength):
         ''' Return a value between 0 and the value set by self.max_damage.'''
 
         # Pick a random value between 0 and self.max_damage
-        ability_attack_value = random.randint(0, self.max_damage)
-        return ability_attack_value
+        self.attack_strength = random.randint(0, self.max_damage)
+        print(self.name + " attack of " + str(self.attack_strength))
+        return self.attack_strength

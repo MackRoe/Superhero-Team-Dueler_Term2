@@ -1,3 +1,6 @@
+from ability import Ability
+
+
 class Hero:
     # We want our hero to have a default "starting_health",
     # so we can set that in the function header.
@@ -37,9 +40,9 @@ class Hero:
         print("--attack method called--")
         total_damage = 0
         # loop through all of our hero's abilities
-        for ability in self.abilities:
+        for each in self.abilities:
             # add the damage of each attack to our running total
-            total_damage += ability.attack()
+            total_damage += each.attack()
             print("Total Damage is " + str(total_damage))
         # return the total damage
         return total_damage
@@ -123,4 +126,4 @@ class Hero:
         # argument to self.abilities.
         # This means that self.abilities will be a list of
         # abilities and weapons.
-        pass
+        self.abilities.append(weapon)
