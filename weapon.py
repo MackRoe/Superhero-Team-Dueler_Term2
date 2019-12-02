@@ -10,6 +10,8 @@ class Weapon(Ability):
         # TODO: Use integer division to find half of the max_damage value
         # then return a random integer between
         # half of max_damage and max_damage
-        min_damage = self.max_damage // 2
-        weapon_attack_value = random.randint(min_damage, self.max_damage)
+        print("max damage of " + self.name + " is ")
+        print(str(self.attack_strength))
+        min_damage = self.attack_strength // 2
+        weapon_attack_value = random.randint(min_damage, self.attack_strength)
         return weapon_attack_value

@@ -4,8 +4,12 @@ import sys
 import superheroes
 import math
 import random
+from armor import Armor
+from hero import Hero
 from ability import Ability
-from hero import Heroes
+from armor import Armor
+from weapon import Weapon
+
 
 # Helper Function
 
@@ -36,9 +40,9 @@ def test_ability_name():
 def test_ability_attack():
     # Test for correct attack value
     test_runs = 400
-    big_strength = superheroes.Ability("Overwhelming Strength", 400)
+    big_strength = Ability("Overwhelming Strength", 400)
     for _ in range(0, test_runs):
-        attack = big_strength.attack(self.attack_strength)
+        attack = big_strength.attack(400)
         assert attack >= 0 and attack <= 400
 
 # Test Weapons Class

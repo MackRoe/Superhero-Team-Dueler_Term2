@@ -1,4 +1,5 @@
 from ability import Ability
+from weapon import Weapon
 
 
 class Hero:
@@ -42,10 +43,11 @@ class Hero:
         # loop through all of our hero's abilities
         for each in self.abilities:
             # add the damage of each attack to our running total
+
             total_damage += each.attack()
             print("Total Damage is " + str(total_damage))
         # return the total damage
-        return total_damage
+        return int(total_damage)
 
     def add_armor(self, armor):
         '''Add armor to self.armors

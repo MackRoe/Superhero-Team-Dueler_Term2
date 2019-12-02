@@ -5,7 +5,7 @@ class Animal(object):
 
     def sleep(self):
         print(self.name + " sleeps for")
-        print(self.sleep_duration + " hours")
+        print(str(self.sleep_duration) + " hours")
 
     def eat(self):
         print(self.name + "is eating")

@@ -16,3 +16,8 @@ class Dog(Animal):
 
     def roll_over(self):
         print(self.name + " rolls over")
+
+
+my_dog = Dog("Sophie", 12)
+my_dog.sleep()
+my_dog.bark()
