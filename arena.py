@@ -100,3 +100,71 @@ class Arena:
         # Call the attack method that exists in your team objects
         # for that battle functionality.
         Team.attack(team1, team2)
+
+    def show_stats(self):
+        '''Prints team statistics to terminal.'''
+        # TODO: This method should print out battle statistics
+        # including each team's average kill/death ratio.
+        # Required Stats:
+        #     Show surviving heroes.
+        #     Declare winning team
+        #     Show both teams average kill/death ratio.
+        # Some help on how to achieve these tasks:
+        # TODO: for each team, loop through all of their heroes,
+        # and use the is_alive() method to check for alive heroes,
+        # printing their names and increasing the count if they're alive.
+        #
+        # TODO: based off of your count of alive heroes,
+        # you can see which team has more alive heroes, and therefore,
+        # declare which team is the winning team
+        #
+        # TODO for each team, calculate the total kills and deaths for each
+        # hero, find the average kills and deaths by dividing the totals by the
+        # number of heroes.
+        # finally, divide the average number of kills by the average number of
+        # deaths for each team
+        # show winning team
+        team1_points = 0
+        team2_points = 0
+        for hero in self.team1:
+            if hero in is_alive():
+                team1_points += 1
+                print(hero.name + " survived")
+            else:
+                print(hero.name + " was vanquished")
+        for hero in self.team2:
+            if hero in is_alive():
+                team2_points += 1
+                print(hero.name + " survived")
+            else:
+                print(hero.name + " was vanquished ")
+        if team1_points > team2_points:
+            print(team1.name + " Wins")
+        else:
+            print(team2.name + " Wins")
+        # calculate average kills for each team, based on number of kills made
+        # by each team member
+        for hero in self.team1:
+            total_kills = 0
+            total_kills += self.kills
+        avg_kills = total_kills // team1_size
+        print(team1.name + " avg kills: " + str(avg_kills))
+        for hero in self.team2:
+            total_kills = 0
+            total_kills += self.kills
+        avg_kills = total_kills // team2_size
+        print(team2.name + " avg kills: " + str(avg_kills))
+
+        # calculate average deaths and show kill/death ratio
+        for hero in arena_team1:
+            total_deaths = 0
+            total_deaths += self.deaths
+            avg_deaths = total_deaths // team1_size
+            print("Team 1 kill/death ratio: ")
+            print(str(avg_kills) + "/" + str(avg_deaths))
+        for hero in arena_team2:
+            total_deaths = 0
+            total_deaths += self.deaths
+            avg_deaths = total_deaths // team2_size
+            print("Team 2 kill/death ratio: ")
+            print(str(avg_kills) + "/" + str(avg_deaths))
