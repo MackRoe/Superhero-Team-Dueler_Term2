@@ -12,6 +12,8 @@ class Hero:
           name: String
           starting_health: Integer
           current_health: Integer
+          kills: Integer
+          deaths: Integer
       '''
     # abilities and armors don't have starting values,
     # and are set to empty lists on initialization
@@ -24,6 +26,13 @@ class Hero:
         # when a hero is created, their current health is
         # always the same as their starting health (no damage taken yet!)
         self.current_health = starting_health
+        # Update the constructor for Hero class to track deaths and kills
+        self.deaths = 0
+        self.kills = 0
+
+    def __str__(self):
+        '''string conversion method'''
+        return self.name
 
     def add_ability(self, ability):
         ''' Add ability to abilities list '''
@@ -129,3 +138,7 @@ class Hero:
         # This means that self.abilities will be a list of
         # abilities and weapons.
         self.abilities.append(weapon)
+
+    def add_kill(self, num_kills):
+        ''' Update self.kills by num_kills amount'''
+        self.kills += num_kills
