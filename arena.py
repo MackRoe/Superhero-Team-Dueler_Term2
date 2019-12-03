@@ -61,3 +61,27 @@ class Arena:
                 # add an armor to the hero
                 create_armor()
         return hero
+
+    def build_teams(self):
+        '''helper function for build_team_one and build_team_two'''
+        # 1) Prompt the user for the name of the team (√)
+        team_name = input("Name your team: ")
+        # 2) Prompt the user for the number of Heroes on the team
+        team_size = input("How many members are in your team? ")
+        # 3) Instantiate a new Team object,
+        # using the team name obtained from user input
+        built_team = []
+        # 4) use a loop to call self.create_hero() for the number
+        # of heroes the user specified the team should have,
+        # and then add the heroes to the team.
+        while team_size > 0:
+            team_member = self.create_hero()
+            team_size -= 1
+            built_team.append(team_member)
+        return built_team
+
+    def build_team_one(self):
+        team1 = build_teams()
+
+    def build_team_two(self):
+        team2 = build_teams()
