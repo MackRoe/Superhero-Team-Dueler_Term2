@@ -1,3 +1,9 @@
+from hero import Hero
+from ability import Ability
+from armor import Armor
+from weapon import Weapon
+from team import Team
+
 class Arena:
     def __init__(self):
         '''Instantiate properties
@@ -81,7 +87,16 @@ class Arena:
         return built_team
 
     def build_team_one(self):
-        team1 = build_teams()
+        self.team1 = build_teams()
+        return self.team1
 
     def build_team_two(self):
-        team2 = build_teams()
+        self.team2 = build_teams()
+        return self.team2
+
+    def team_battle(self, team1, team2):
+        '''Battle team_one and team_two together.'''
+        # TODO: This method should battle the teams together.
+        # Call the attack method that exists in your team objects
+        # for that battle functionality.
+        Team.attack(team1, team2)
