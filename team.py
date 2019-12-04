@@ -1,5 +1,6 @@
 import random
 
+
 class Team:
     def __init__(self, name):
         ''' Initialize your team with its team name and an empty list of heroes
@@ -46,12 +47,12 @@ class Team:
         for hero in self.heroes:
             hero.current_health = hero.starting_health
 
-    def attack(self, team, other_team):
+    def attack(self, other_team):
         # added team arg
         ''' Battle each team against each other.'''
 
-        living_heroes = team
-        living_opponents = other_team
+        living_heroes = list()
+        living_opponents = list()
         # changed list() to team and other_team
 
         for hero in self.heroes:

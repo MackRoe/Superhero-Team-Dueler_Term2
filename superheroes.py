@@ -3,6 +3,9 @@ from hero import Hero
 from ability import Ability
 from armor import Armor
 from weapon import Weapon
+from team import Team
+from arena import Arena
+import team_test
 
 if __name__ == "__main__":
     # If you run this file from the terminal
@@ -33,7 +36,21 @@ if __name__ == "__main__":
     # hero.take_damage(15000)
     # print(hero.is_alive())
 
-    hero = Hero("Wonder Woman")
-    weapon = Weapon("Lasso of Truth", 90)
-    hero.add_weapon(weapon)
-    print(hero.attack())
+    # hero = Hero("Wonder Woman")
+    # weapon = Weapon("Lasso of Truth", 90)
+    # hero.add_weapon(weapon)
+    # print(hero.attack())
+
+    arena = Arena()
+    # arena.build_team_one()
+    # arena.build_team_two()
+    hero1 = team_test.build_hero(num_of_weapons=1, num_of_armor=1, num_of_abilities=1)
+    hero2 = team_test.build_hero(num_of_weapons=1, num_of_armor=1, num_of_abilities=1)
+    team1z = team_test.create_team([hero1])
+    team2z = team_test.create_team([hero2])
+    arena.team_one = team1z
+    arena.team_two = team2z
+    arena.team_one_size = 1
+    arena.team_two_size = 1
+    arena.team_battle()
+    arena.show_stats()

@@ -4,14 +4,18 @@ from armor import Armor
 from weapon import Weapon
 from team import Team
 
+
 class Arena:
     def __init__(self):
         '''Instantiate properties
             team_one: None
             team_two: None
         '''
-        self.team_one = team_one
-        self.team_two = team_two
+        self.team_one = []
+        self.team_two = []
+        self.team_size = 0
+        self.team_one_size = 0
+        self.team_two_size = 0
 
     def create_ability(self):
         '''Prompt for Ability information.
@@ -59,13 +63,13 @@ class Arena:
             add_item = input("[4] Done adding items\n\nYour choice: ")
             if add_item == "1":
                 # add an ability to the hero
-                create_ability()
+                self.create_ability()
             elif add_item == "2":
                 # add a weapon to the hero
-                create_weapon()
+                self.create_weapon()
             elif add_item == "3":
                 # add an armor to the hero
-                create_armor()
+                self.create_armor()
         return hero
 
     def build_teams(self):
@@ -73,33 +77,36 @@ class Arena:
         # 1) Prompt the user for the name of the team (√)
         team_name = input("Name your team: ")
         # 2) Prompt the user for the number of Heroes on the team
-        team_size = input("How many members are in your team? ")
+        self.team_size = int(input("How many members are in your team? "))
         # 3) Instantiate a new Team object,
         # using the team name obtained from user input
-        built_team = []
+        built_team = Team(team_name)  # changed from built_team = []
         # 4) use a loop to call self.create_hero() for the number
         # of heroes the user specified the team should have,
         # and then add the heroes to the team.
-        while team_size > 0:
+        count = 0
+        while team_size > count:
             team_member = self.create_hero()
-            team_size -= 1
-            built_team.append(team_member)
-        return built_team
+            count += 1
+            built_team.add_hero(team_member)
+        return built_team, self.team_size
 
     def build_team_one(self):
-        self.team1 = build_teams()
-        return self.team1
+        self.team_one = self.build_teams()
+        team_one_size = self.team_size
+        return self.team_one, self.team_one_size
 
     def build_team_two(self):
-        self.team2 = build_teams()
-        return self.team2
+        self.team_two = self.build_teams()
+        team_two_size = self.team_size
+        return self.team_two, self.team_two_size
 
-    def team_battle(self, team1, team2):
+    def team_battle(self):
         '''Battle team_one and team_two together.'''
         # TODO: This method should battle the teams together.
         # Call the attack method that exists in your team objects
         # for that battle functionality.
-        Team.attack(team1, team2)
+        self.team_one.attack(self.team_two)
 
     def show_stats(self):
         '''Prints team statistics to terminal.'''
@@ -124,47 +131,47 @@ class Arena:
         # finally, divide the average number of kills by the average number of
         # deaths for each team
         # show winning team
-        team1_points = 0
-        team2_points = 0
-        for hero in self.team1:
-            if hero in is_alive():
-                team1_points += 1
+        team_one_points = 0
+        team_two_points = 0
+        for hero in self.team_one.heroes:
+            if hero.is_alive():
+                team_one_points += 1
                 print(hero.name + " survived")
             else:
                 print(hero.name + " was vanquished")
-        for hero in self.team2:
-            if hero in is_alive():
-                team2_points += 1
+        for hero in self.team_two.heroes:
+            if hero.is_alive():
+                team_two_points += 1
                 print(hero.name + " survived")
             else:
                 print(hero.name + " was vanquished ")
-        if team1_points > team2_points:
-            print(team1.name + " Wins")
+        if team_one_points > team_two_points:
+            print(self.team_one.name + " Wins")
         else:
-            print(team2.name + " Wins")
+            print(self.team_two.name + " Wins")
         # calculate average kills for each team, based on number of kills made
         # by each team member
-        for hero in self.team1:
+        for hero in self.team_one.heroes:
             total_kills = 0
-            total_kills += self.kills
-        avg_kills = total_kills // team1_size
-        print(team1.name + " avg kills: " + str(avg_kills))
-        for hero in self.team2:
+            total_kills += hero.kills
+        avg_kills = total_kills // self.team_one_size
+        print(self.team_one.name + " avg kills: " + str(avg_kills))
+        for hero in self.team_two.heroes:
             total_kills = 0
-            total_kills += self.kills
-        avg_kills = total_kills // team2_size
-        print(team2.name + " avg kills: " + str(avg_kills))
+            total_kills += hero.kills
+        avg_kills = total_kills // self.team_two_size
+        print(self.team_two.name + " avg kills: " + str(avg_kills))
 
         # calculate average deaths and show kill/death ratio
-        for hero in arena_team1:
+        for hero in self.team_one.heroes:
             total_deaths = 0
-            total_deaths += self.deaths
-            avg_deaths = total_deaths // team1_size
+            total_deaths += hero.deaths
+            avg_deaths = total_deaths // self.team_one_size
             print("Team 1 kill/death ratio: ")
             print(str(avg_kills) + "/" + str(avg_deaths))
-        for hero in arena_team2:
+        for hero in self.team_two.heroes:
             total_deaths = 0
-            total_deaths += self.deaths
-            avg_deaths = total_deaths // team2_size
+            total_deaths += hero.deaths
+            avg_deaths = total_deaths // self.team_two_size
             print("Team 2 kill/death ratio: ")
             print(str(avg_kills) + "/" + str(avg_deaths))
