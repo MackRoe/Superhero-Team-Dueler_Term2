@@ -42,15 +42,15 @@ if __name__ == "__main__":
     # print(hero.attack())
 
     arena = Arena()
-    # arena.build_team_one()
-    # arena.build_team_two()
-    hero1 = team_test.build_hero(num_of_weapons=1, num_of_armor=1, num_of_abilities=1)
-    hero2 = team_test.build_hero(num_of_weapons=1, num_of_armor=1, num_of_abilities=1)
-    team1z = team_test.create_team([hero1])
-    team2z = team_test.create_team([hero2])
-    arena.team_one = team1z
-    arena.team_two = team2z
-    arena.team_one_size = 1
-    arena.team_two_size = 1
+    arena.build_team_one()
+    arena.build_team_two()
+    # hero1 = team_test.build_hero(num_of_weapons=1, num_of_armor=1, num_of_abilities=1)
+    # hero2 = team_test.build_hero(num_of_weapons=1, num_of_armor=1, num_of_abilities=1)
+    # team1z = team_test.create_team([hero1])
+    # team2z = team_test.create_team([hero2])
+    # arena.team_one = team1z
+    # arena.team_two = team2z
+    # arena.team_one_size = 1
+    # arena.team_two_size = 1
     arena.team_battle()
     arena.show_stats()
