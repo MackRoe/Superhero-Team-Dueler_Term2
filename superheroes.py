@@ -5,7 +5,7 @@ from armor import Armor
 from weapon import Weapon
 from team import Team
 from arena import Arena
-import team_test
+# import team_test
 
 if __name__ == "__main__":
     # If you run this file from the terminal

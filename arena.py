@@ -80,12 +80,12 @@ class Arena:
         self.team_size = int(input("How many members are in your team? "))
         # 3) Instantiate a new Team object,
         # using the team name obtained from user input
-        built_team = Team(team_name)  # changed from built_team = []
+        built_team, = Team(team_name)  # changed from built_team = []
         # 4) use a loop to call self.create_hero() for the number
         # of heroes the user specified the team should have,
         # and then add the heroes to the team.
         count = 0
-        while team_size > count:
+        while self.team_size > count:
             team_member = self.create_hero()
             count += 1
             built_team.add_hero(team_member)
