@@ -19,6 +19,6 @@ class Ability:
         self.attack_strength.'''
 
         # Pick a random value between 0 and self.attack_strength
-        whatever = random.randint(0, self.attack_strength)
+        whatever = random.randint(0, int(self.attack_strength))
         print(self.name + " attack of " + str(whatever))
         return whatever

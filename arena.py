@@ -63,13 +63,17 @@ class Arena:
             add_item = input("[4] Done adding items\n\nYour choice: ")
             if add_item == "1":
                 # add an ability to the hero
-                self.create_ability()
+                added_ability = self.create_ability()
+                hero.add_ability(added_ability)
+                # print(f"_ ability added")
             elif add_item == "2":
                 # add a weapon to the hero
-                self.create_weapon()
+                added_weapon = self.create_weapon()
+                hero.add_weapon(added_weapon)
             elif add_item == "3":
                 # add an armor to the hero
-                self.create_armor()
+                added_armor = self.create_armor()
+                hero.add_armor(added_armor)
         return hero
 
     def build_teams(self):

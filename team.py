@@ -57,9 +57,11 @@ class Team:
 
         for hero in self.heroes:
             living_heroes.append(hero)
+            print(str(hero.abilities))
 
         for hero in other_team.heroes:
             living_opponents.append(hero)
+            print(str(hero.abilities))
 
         while len(living_heroes) > 0 and len(living_opponents) > 0:
             # TODO: Complete the following steps:
