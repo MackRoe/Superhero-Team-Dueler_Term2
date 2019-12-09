@@ -108,11 +108,16 @@ class Hero:
         #   is alive
         # 4) if one of them has died, print "HeroName won!" replacing HeroName
         #   with the name of the hero, and end the fight loop
+        print("-- hero.fight method called --")
+        print(f"Hero abilities: {self.abilities}")
+        print(f"Opponent abilities: {opponent.abilities}")
+
         while self.is_alive() and opponent.is_alive():
             if self.abilities == opponent.abilities:
                 # declare a draw if combatant abilities are equivalent
                 print("Hero abilities are equivalent. No victor possible.")
                 print("Match declared a Draw")
+                return
             # attack opponent
             damage = self.attack()
             # accumulate opponent's damage
