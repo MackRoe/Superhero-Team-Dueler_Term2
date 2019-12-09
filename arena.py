@@ -80,7 +80,7 @@ class Arena:
         self.team_size = int(input("How many members are in your team? "))
         # 3) Instantiate a new Team object,
         # using the team name obtained from user input
-        built_team, = Team(team_name)  # changed from built_team = []
+        built_team = Team(team_name)  # changed from built_team = []
         # 4) use a loop to call self.create_hero() for the number
         # of heroes the user specified the team should have,
         # and then add the heroes to the team.
@@ -92,13 +92,11 @@ class Arena:
         return built_team, self.team_size
 
     def build_team_one(self):
-        self.team_one = self.build_teams()
-        team_one_size = self.team_size
+        self.team_one, self.team_one_size = self.build_teams()
         return self.team_one, self.team_one_size
 
     def build_team_two(self):
-        self.team_two = self.build_teams()
-        team_two_size = self.team_size
+        self.team_two, self.team_two_size = self.build_teams()
         return self.team_two, self.team_two_size
 
     def team_battle(self):
